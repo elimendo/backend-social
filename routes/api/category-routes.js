@@ -23,18 +23,25 @@ router.get("/:id", (req, res) => {
     include: [Product],
   })
     .then((category) => res.json(category))
-    .catch((err) => res.status(500).json(err));
+    .catch((err) => res.status(400).json(err));
 });
 
 router.post("/", (req, res) => {
   // create a new category
   Category.create(req.body)
-  .then((category) => res.json(category))
-    .catch((err) => res.status(500).json(err));
+    .then((category) => res.json(category))
+    .catch((err) => res.status(400).json(err));
 });
 
 router.put("/:id", (req, res) => {
   // update a category by its `id` value
+  Category.update(req.body, {
+    where: {
+      id: req.params.id,
+    },
+  })
+    .then((categories) => res.json(categories))
+    .catch((err) => res.status(400).json(err));
 });
 
 router.delete("/:id", (req, res) => {
