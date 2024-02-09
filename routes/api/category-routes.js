@@ -22,12 +22,15 @@ router.get("/:id", (req, res) => {
     },
     include: [Product],
   })
-    .then((categories) => res.json(categories))
+    .then((category) => res.json(category))
     .catch((err) => res.status(500).json(err));
 });
 
 router.post("/", (req, res) => {
   // create a new category
+  Category.create(req.body)
+  .then((category) => res.json(category))
+    .catch((err) => res.status(500).json(err));
 });
 
 router.put("/:id", (req, res) => {
