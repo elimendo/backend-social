@@ -10,8 +10,11 @@ This Express.js API connects to a MySQL database using Sequelize. It supports cr
 
 ## Installation
 
-```bash
+bash
 git clone <https://github.com/elimendo/backend-social >
 cd <project-directory>
 npm install
+
+## Deployment Video
+https://app.screencastify.com/v3/watch/oTf0PBb4gtCyKxzMqXhW
 
